@@ -1,0 +1,300 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Track Windows Autopilot device preparation and readiness.">
+  <title>Autopilot Device Prep Tracking</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="page-shell">
+    <main class="main-content">
+      <section class="intro" aria-labelledby="page-title">
+        <h1 id="page-title">Autopilot Device Prep Tracking</h1>
+        <p class="intro-copy">Capture the preparation details for each device before it reaches its new user.</p>
+        <p class="submission-notice">Only submit one entry per device.</p>
+      </section>
+
+
+        <section class="form-card" aria-labelledby="form-title">
+          <div class="form-heading">
+            <h2 id="form-title">Device information</h2>
+            <span class="required-note"><span aria-hidden="true">*</span> Required</span>
+          </div>
+
+          <form id="device-form">
+            <fieldset>
+              <legend>Identify the device</legend>
+              <div class="field-grid single-column">
+                <div class="field">
+                  
+                    <label class="ticket-number-label" for="ticket-number">Ticket number <span aria-hidden="true">*</span></label>
+                    <input id="ticket-number" name="ticketNumber" type="text" placeholder="e.g. INC-10482" required>
+                </div>
+                <div class="field">
+                  <label for="technician">Tech name <span aria-hidden="true">*</span></label>
+                  <input id="technician" name="technician" type="text" placeholder="Technician name" required>
+                </div>
+                <div class="field">
+                  <label for="serial-number">Serial number <span aria-hidden="true">*</span></label>
+                  <input id="serial-number" name="serialNumber" type="text" placeholder="Enter serial number" required>
+                </div>
+                <div class="field">
+                  <label for="hostname">Hostname <span aria-hidden="true">*</span></label>
+                  <input id="hostname" name="hostname" type="text" placeholder="e.g. LT-00482" required>
+                </div>
+              </div>
+              <div class="field">
+                <span class="field-label">Client role <span aria-hidden="true">*</span></span>
+                <div class="radio-list radio-list-inline">
+                  <label class="radio-option">
+                    <input type="radio" name="clientRole" value="faculty" required>
+                    <span>Faculty</span>
+                  </label>
+                  <label class="radio-option">
+                    <input type="radio" name="clientRole" value="staff">
+                    <span>Staff</span>
+                  </label>
+                  <label class="radio-option">
+                    <input type="radio" name="clientRole" value="student">
+                    <span>Student</span>
+                  </label>
+                </div>
+              </div>
+              <div class="field">
+                <span class="field-label">Client or tech imaged <span aria-hidden="true">*</span></span>
+                <div class="radio-list radio-list-inline">
+                  <label class="radio-option">
+                    <input type="radio" name="imagedBy" value="client" required>
+                    <span>Client</span>
+                  </label>
+                  <label class="radio-option">
+                    <input type="radio" name="imagedBy" value="tech">
+                    <span>Tech</span>
+                  </label>
+                </div>
+              </div>
+              <div class="field">
+                <span class="field-label">Location of imaging <span aria-hidden="true">*</span></span>
+                <div class="radio-list radio-list-inline">
+                  <label class="radio-option">
+                    <input type="radio" name="imagingLocation" value="walk-in" required>
+                    <span>Walk-In</span>
+                  </label>
+                  <label class="radio-option">
+                    <input type="radio" name="imagingLocation" value="on-campus">
+                    <span>On-Campus</span>
+                  </label>
+                  <label class="radio-option">
+                    <input type="radio" name="imagingLocation" value="remote-location">
+                    <span>Remote Location</span>
+                  </label>
+                  <label class="radio-option">
+                    <input type="radio" name="imagingLocation" value="home-setup">
+                    <span>Home Setup</span>
+                  </label>
+                </div>
+              </div>
+              <div class="field">
+                <span class="field-label">Enrollment type <span aria-hidden="true">*</span></span>
+                <div class="radio-list radio-list-inline">
+                  <label class="radio-option">
+                    <input type="radio" name="enrollmentType" value="single-user" required>
+                    <span>Single User</span>
+                  </label>
+                  <label class="radio-option">
+                    <input type="radio" name="enrollmentType" value="shared-computer">
+                    <span>Shared Computer</span>
+                  </label>
+                </div>
+              </div>
+            </fieldset>
+
+            <fieldset>
+              <legend>Client instructions</legend>
+              <div class="field">
+                <label for="documentation-provided">Was the client provided Instructions? <span aria-hidden="true">*</span></label>
+                <select id="documentation-provided" name="documentationProvided" required>
+                  <option value="" selected disabled>Select an option</option>
+                  <option value="client-received-department-instructions">Client received setup instructions from their department/supervisor</option>
+                  <option value="client-did-not-receive-department-instructions">Client did not receive setup instructions from department/supervisor</option>
+                  <option value="css-provided-remote-instructions">CSS provided instructions for client to complete remotely</option>
+                  <option value="css-walked-client-through-setup">CSS walked client through setup process</option>
+                </select>
+              </div>
+            </fieldset>
+
+            <fieldset>
+              <legend>Preparation status</legend>
+              <div class="field-grid single-column">
+                <div class="field">
+                  <label for="start-date">Start date <span aria-hidden="true">*</span></label>
+                  <input id="start-date" name="startDate" type="date" required>
+                </div>
+                <div class="field end-date-field">
+                  <label for="end-date">End date <span aria-hidden="true">*</span></label>
+                  <input id="end-date" name="endDate" type="date" required>
+                </div>
+              </div>
+              <div class="field-grid two-columns">
+                <div class="field">
+                  <label for="time-to-complete">Time to complete <span aria-hidden="true">*</span></label>
+                  <input id="time-to-complete" name="timeToComplete" type="text" placeholder="e.g. 2 hours">
+                </div>
+              </div>
+              <div class="field">
+                <label for="autopilot-device-prep">Autopilot device prep <span aria-hidden="true">*</span></label>
+                <textarea id="autopilot-device-prep" name="autopilotDevicePrep" rows="4" placeholder="Describe the Autopilot preparation completed..." required></textarea>
+              </div>
+              <div class="field">
+                <span class="field-label">Bundle purchased</span>
+                <div class="radio-list radio-list-inline">
+                  <label class="radio-option">
+                    <input type="radio" name="bundlePurchased" value="yes">
+                    <span>Yes</span>
+                  </label>
+                  <label class="radio-option">
+                    <input type="radio" name="bundlePurchased" value="no">
+                    <span>No</span>
+                  </label>
+                </div>
+                <button class="choice-clear" id="clear-bundle" type="button">Clear selection</button>
+              </div>
+              <div class="field">
+                <span class="field-label">Successful <span aria-hidden="true">*</span></span>
+                <div class="radio-list radio-list-inline">
+                  <label class="radio-option">
+                    <input type="radio" name="successful" value="yes" required>
+                    <span>Yes</span>
+                  </label>
+                  <label class="radio-option">
+                    <input type="radio" name="successful" value="no">
+                    <span>No</span>
+                  </label>
+                </div>
+              </div>
+              <div class="field">
+                <span class="field-label">BitLocker installed <span aria-hidden="true">*</span></span>
+                <div class="radio-list radio-list-inline">
+                  <label class="radio-option">
+                    <input type="radio" name="bitlockerInstalled" value="yes" required>
+                    <span>Yes</span>
+                  </label>
+                  <label class="radio-option">
+                    <input type="radio" name="bitlockerInstalled" value="no">
+                    <span>No</span>
+                  </label>
+                </div>
+              </div>
+              <div class="field">
+                <span class="field-label">Company Portal installed <span aria-hidden="true">*</span></span>
+                <div class="radio-list radio-list-inline">
+                  <label class="radio-option">
+                    <input type="radio" name="companyPortalInstalled" value="yes" required>
+                    <span>Yes</span>
+                  </label>
+                  <label class="radio-option">
+                    <input type="radio" name="companyPortalInstalled" value="no">
+                    <span>No</span>
+                  </label>
+                </div>
+              </div>
+              <div class="field">
+                <span class="field-label">Chrome installed <span aria-hidden="true">*</span></span>
+                <div class="radio-list radio-list-inline">
+                  <label class="radio-option">
+                    <input type="radio" name="chromeInstalled" value="yes" required>
+                    <span>Yes</span>
+                  </label>
+                  <label class="radio-option">
+                    <input type="radio" name="chromeInstalled" value="no">
+                    <span>No</span>
+                  </label>
+                </div>
+              </div>
+              <div class="field">
+                <span class="field-label">Drives mapped <span aria-hidden="true">*</span></span>
+                <div class="radio-list radio-list-inline">
+                  <label class="radio-option">
+                    <input type="radio" name="drivesMapped" value="yes" required>
+                    <span>Yes</span>
+                  </label>
+                  <label class="radio-option">
+                    <input type="radio" name="drivesMapped" value="no">
+                    <span>No</span>
+                  </label>
+                </div>
+              </div>
+              <div class="field">
+                <span class="field-label">Printers installed <span aria-hidden="true">*</span></span>
+                <div class="radio-list radio-list-inline">
+                  <label class="radio-option">
+                    <input type="radio" name="printersInstalled" value="yes" required>
+                    <span>Yes</span>
+                  </label>
+                  <label class="radio-option">
+                    <input type="radio" name="printersInstalled" value="no">
+                    <span>No</span>
+                  </label>
+                </div>
+              </div>
+            </fieldset>
+
+            <fieldset>
+              <legend>Process follow-up</legend>
+              <div class="field">
+                <span class="field-label">Were you able to follow the process? <span aria-hidden="true">*</span></span>
+                <div class="radio-list radio-list-inline">
+                  <label class="radio-option">
+                    <input type="radio" name="followedProcess" value="yes" required>
+                    <span>Yes</span>
+                  </label>
+                  <label class="radio-option">
+                    <input type="radio" name="followedProcess" value="no">
+                    <span>No</span>
+                  </label>
+                </div>
+              </div>
+              <div class="field conditional-field" id="why-not-field" hidden>
+                <label for="why-not">If you were not able to follow the process please explain why below</label>
+                <textarea id="why-not" name="whyNot" rows="4" placeholder="Describe what prevented you from following the process..."></textarea>
+              </div>
+            </fieldset>
+
+            <fieldset>
+              <legend>Handoff notes</legend>
+              <div class="field">
+                <span class="field-label">Did you encounter any additional issues? <span aria-hidden="true">*</span></span>
+                <div class="radio-list radio-list-inline">
+                  <label class="radio-option">
+                    <input type="radio" name="encounteredIssues" value="yes" required>
+                    <span>Yes</span>
+                  </label>
+                  <label class="radio-option">
+                    <input type="radio" name="encounteredIssues" value="no">
+                    <span>No</span>
+                  </label>
+                </div>
+              </div>
+              <div class="field conditional-field" id="issues-description-field" hidden>
+                <label for="issues-description">Please provide any additional details that you think is relevant here</label>
+                <textarea id="issues-description" name="issuesDescription" rows="4" placeholder="Describe the issues encountered..."></textarea>
+              </div>
+            </fieldset>
+
+            <div class="form-actions">
+              <p class="form-message" id="form-message" role="status" aria-live="polite"></p>
+              <button class="button button-secondary" type="reset">Clear form</button>
+              <button class="button button-primary" type="submit">Save device entry <span aria-hidden="true">→</span></button>
+            </div>
+          </form>
+        </section>
+      </div>
+    </main>
+
+    <footer class="site-footer"><span>Autopilot Device Prep Tracking</span><span>v0.1 · Intake form</span></footer>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
